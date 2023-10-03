@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Oct 03 08:15:57 UTC 2023","Tue Oct 03 08:16:13 UTC 2023","16151","tests.integration.resin.products","test_product_service_page","","","","test_service_type_filter","frontend/resin/resin_product_service_page.feature: Verify that the Service Type filter is working correctly"

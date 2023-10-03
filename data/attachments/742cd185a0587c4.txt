@@ -1,0 +1,1 @@
+WARNING  selenium.webdriver.common.selenium_manager:selenium_manager.py:136 The chromedriver version (116.0.5845.96) detected in PATH at /usr/local/bin/chromedriver might not be compatible with the detected chrome version (117.0.5938.132); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry
