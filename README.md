@@ -1,0 +1,1 @@
+# allure_html_report
