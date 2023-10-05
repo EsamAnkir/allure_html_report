@@ -1,0 +1,1 @@
+{"uuid": "669137d4-9a96-4913-a6d5-0f063b1bebe1", "children": ["99300a13-5c02-4bc6-8114-990e81dc9a09"], "befores": [{"name": "pytestbdd_when_The user click the product \"{tittle}\" and get the \"{sku_listing}\" and check \"{sku_edit}\"", "status": "passed", "start": 1696510326365, "stop": 1696510326365}], "start": 1696510326365, "stop": 1696510329858}

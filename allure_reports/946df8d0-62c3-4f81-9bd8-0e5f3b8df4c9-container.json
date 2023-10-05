@@ -1,0 +1,1 @@
+{"uuid": "f26abeff-27ce-4212-aeba-de30d9d535d4", "children": ["5eab1c75-6b4a-40ba-82f2-14b82c734f54"], "befores": [{"name": "pytestbdd_then_The product results \"{locator_name}\" brand is \"{message}\"", "status": "passed", "start": 1696510477955, "stop": 1696510477955}], "start": 1696510477955, "stop": 1696510479177}

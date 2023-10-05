@@ -1,0 +1,1 @@
+{"uuid": "24e7aec7-6c37-40a2-ab18-fe83e6dfb004", "children": ["256bb89e-fcc9-4fca-b3f2-ecdd63e67af9"], "befores": [{"name": "pytestbdd_when_The user click the product \"{locator_name}\" and get the \"{update_date}\" and \"{created_by}\"", "status": "passed", "start": 1696510295555, "stop": 1696510295555}], "start": 1696510295555, "stop": 1696510309678}

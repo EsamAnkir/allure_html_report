@@ -1,0 +1,1 @@
+{"uuid": "17de45a2-1e3f-4be3-a5b6-367de90439e3", "children": ["cdc52e80-46ac-4764-abb9-eb50648f908f"], "befores": [{"name": "pytestbdd_when_The user clicks the add button \"{add_buttons}\" and check if it in other group \"{grouped_add_button}\"", "status": "passed", "start": 1696510256760, "stop": 1696510256760}], "start": 1696510256760, "stop": 1696510262312}
