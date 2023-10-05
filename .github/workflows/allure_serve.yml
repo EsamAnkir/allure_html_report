@@ -35,4 +35,4 @@ jobs:
 
     - name: Serve Allure report
       run: |
-        allure serve allure_reports
+        allure serve allure_reports --host 0.0.0.0 --port 8080
