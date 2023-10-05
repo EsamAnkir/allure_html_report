@@ -1,0 +1,42 @@
+name: Allure Serve
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  allure-serve:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Choose the appropriate Python version
+
+    - name: Install OpenJDK 11
+      run: |
+        sudo apt-get update
+        sudo apt-get install openjdk-11-jdk
+      # Validate Java installation
+    - name: Verify Java version
+      run: java -version
+
+    - name: Install Allure Commandline
+      run: |
+        npm install -g allure-commandline
+      # Verify Allure installation
+    - name: Verify Allure version
+      run: allure --version
+
+    - name: Install required packages
+      run: |
+        pip install -r requirements.txt  # Replace with the actual requirements file if you have one
+
+    - name: Serve Allure report
+      run: |
+        allure serve allure_reports
