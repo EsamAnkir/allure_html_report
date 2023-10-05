@@ -35,4 +35,14 @@ jobs:
 
     - name: Serve Allure report
       run: |
-        allure serve allure_reports --host 0.0.0.0 --port 8080
+        nohup allure serve allure_reports --host 0.0.0.0 --port 8080 > allure.log 2>&1 &
+        sleep 5  # Allow some time for the server to start
+        ngrok http 8080 -log=stdout > ngrok.log &
+      background: true
+
+    - name: Get ngrok public URL
+      run: |
+        sleep 10  # Wait for ngrok to initialize
+        NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)
+        echo "Public URL for Allure report: $NGROK_URL"
+      shell: bash
