@@ -33,10 +33,6 @@ jobs:
     - name: Verify Allure version
       run: allure --version
 
-    - name: Install required packages
-      run: |
-        pip install -r requirements.txt  # Replace with the actual requirements file if you have one
-
     - name: Serve Allure report
       run: |
         allure serve allure_reports
