@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -41,4 +46,4 @@ jobs:
       run: |
         nohup allure serve allure_reports --host 0.0.0.0 --port 8080 > allure.log 2>&1 &
         sleep 5  # Allow some time for the server to start
-        npx localtunnel --port 8080 &  # Use & to run in the background
+        npx localtunnel --port 8080 &
