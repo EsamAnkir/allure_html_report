@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Use Node.js 16.x
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
-
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -45,6 +40,11 @@ jobs:
         else
           echo "requirements.txt not found."
         fi
+
+    - name: Get Public IP Address
+      run: |
+        PUBLIC_IP=$(curl -s ifconfig.me)
+        echo "Public IP Address: $PUBLIC_IP"
 
     - name: Serve Allure report
       run: |
