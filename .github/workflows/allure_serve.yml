@@ -41,5 +41,4 @@ jobs:
       run: |
         nohup allure serve allure_reports --host 0.0.0.0 --port 8080 > allure.log 2>&1 &
         sleep 5  # Allow some time for the server to start
-        npx localtunnel --port 8080
-      background: true
+        npx localtunnel --port 8080 &  # Use & to run in the background
