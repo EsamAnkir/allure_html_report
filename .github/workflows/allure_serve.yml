@@ -40,7 +40,24 @@ jobs:
 
     - name: Get ngrok public URL
       run: |
-        sleep 10  # Wait for ngrok to initialize
-        NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)
-        echo "Public URL for Allure report: $NGROK_URL"
-      shell: bash
+        retries=0
+        max_retries=10
+        ngrok_url=""
+        
+        # Wait for ngrok to initialize, with retries
+        while [ $retries -lt $max_retries ]; do
+          ngrok_url=$(curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)
+          if [ -n "$ngrok_url" ]; then
+            break
+          fi
+          sleep 5
+          retries=$((retries+1))
+        done
+
+        if [ -n "$ngrok_url" ]; then
+          echo "Public URL for Allure report: $ngrok_url"
+        else
+          echo "Unable to retrieve ngrok public URL after $max_retries retries."
+          exit 1
+        fi
+
