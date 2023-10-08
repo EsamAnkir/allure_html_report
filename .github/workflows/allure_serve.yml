@@ -40,7 +40,11 @@ jobs:
 
     - name: Install required packages
       run: |
-        pip install -r requirements.txt  # Replace with the actual requirements file if you have one
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        else
+          echo "requirements.txt not found."
+        fi
 
     - name: Serve Allure report
       run: |
