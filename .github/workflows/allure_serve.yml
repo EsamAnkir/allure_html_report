@@ -33,31 +33,13 @@ jobs:
     - name: Verify Allure version
       run: allure --version
 
-    - name: Serve Allure report in the background
+    - name: Install required packages
+      run: |
+        pip install -r requirements.txt  # Replace with the actual requirements file if you have one
+
+    - name: Serve Allure report
       run: |
         nohup allure serve allure_reports --host 0.0.0.0 --port 8080 > allure.log 2>&1 &
         sleep 5  # Allow some time for the server to start
-
-    - name: Get ngrok public URL
-      run: |
-        retries=0
-        max_retries=10
-        ngrok_url=""
-        
-        # Wait for ngrok to initialize, with retries
-        while [ $retries -lt $max_retries ]; do
-          ngrok_url=$(curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)
-          if [ -n "$ngrok_url" ]; then
-            break
-          fi
-          sleep 5
-          retries=$((retries+1))
-        done
-
-        if [ -n "$ngrok_url" ]; then
-          echo "Public URL for Allure report: $ngrok_url"
-        else
-          echo "Unable to retrieve ngrok public URL after $max_retries retries."
-          exit 1
-        fi
-
+        npx localtunnel --port 8080
+      background: true
