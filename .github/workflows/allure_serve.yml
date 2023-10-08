@@ -33,12 +33,10 @@ jobs:
     - name: Verify Allure version
       run: allure --version
 
-    - name: Serve Allure report
+    - name: Serve Allure report in the background
       run: |
         nohup allure serve allure_reports --host 0.0.0.0 --port 8080 > allure.log 2>&1 &
         sleep 5  # Allow some time for the server to start
-        ngrok http 8080 -log=stdout > ngrok.log &
-      background: true
 
     - name: Get ngrok public URL
       run: |
