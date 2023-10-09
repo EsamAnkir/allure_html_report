@@ -13,29 +13,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Update and Install Dependencies
-      run: |
-        sudo apt-get update
-        DEBIAN_FRONTEND=noninteractive sudo apt-get install -y curl
-        curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-        sudo apt-get clean
-
-    - name: Install Allure Command-line Tool
-      run: npm install -g allure-commandline
-
-    - name: Serve Allure Report
-      run: |
-        # Serve the report locally using Allure
-        allure serve allure-report
-
     - name: Upload Allure Report
       uses: actions/upload-artifact@v2
       with:
-        name: allure-report
-        path: allure-report
-
-    - name: Stop Allure Server
-      run: |
-        # Find the Allure server process and kill it
-        pkill -f 'allure serve'
+        name: html-reports
+        path: html-reports
