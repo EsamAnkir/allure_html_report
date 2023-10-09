@@ -26,7 +26,7 @@ jobs:
     - name: Serve Allure Report
       run: |
         # Serve the Allure report on a specified port.
-        allure serve allure-report --port 8080 &
+        allure serve allure_reports --port 8080 &
 
     - name: Wait for Report to Start
       run: sleep 10  # Adjust the duration as needed to ensure the report starts serving.
