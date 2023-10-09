@@ -1,53 +1,53 @@
-name: Allure Serve
+name: Allure Report
 
-on:
-  push:
-    branches:
-      - main
+on: [push]  # Trigger the workflow on a push to the repository
 
 jobs:
-  allure-serve:
+  allure:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Set up Java
+      uses: actions/setup-java@v2
       with:
-        python-version: 3.x  # Choose the appropriate Python version
+        distribution: 'adopt'
+        java-version: '11'
 
-    - name: Install OpenJDK 11
+    - name: Install Allure
       run: |
-        sudo apt-get update
-        sudo apt-get install openjdk-11-jdk
-      # Validate Java installation
-    - name: Verify Java version
-      run: java -version
+        wget https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-commandline-2.14.0.zip
+        unzip allure-commandline-2.14.0.zip
+        sudo mv allure-2.14.0 /usr/bin/allure
+        sudo chmod +x /usr/bin/allure
+        allure --version
 
-    - name: Install Allure Commandline
+    - name: Generate Allure Report
       run: |
-        npm install -g allure-commandline
-      # Verify Allure installation
-    - name: Verify Allure version
-      run: allure --version
+        # Replace 'your/allure/results/folder' with the path to your Allure results folder.
+        allure generate your/allure/results/folder -o allure-report
 
-    - name: Install required packages
+    - name: Serve Allure Report
       run: |
-        if [ -f requirements.txt ]; then
-          pip install -r requirements.txt
-        else
-          echo "requirements.txt not found."
-        fi
+        # Serve the Allure report on a specified port.
+        allure serve allure-report --port 8080 &
 
-    - name: Get Public IP Address
-      run: |
-        PUBLIC_IP=$(curl -s ifconfig.me)
-        echo "Public IP Address: $PUBLIC_IP"
+    - name: Wait for Report to Start
+      run: sleep 10  # Adjust the duration as needed to ensure the report starts serving.
 
-    - name: Serve Allure report
+    - name: Echo Report URL
       run: |
-        nohup allure serve allure_reports --host 0.0.0.0 --port 8080 > allure.log 2>&1 &
-        sleep 5  # Allow some time for the server to start
-        npx localtunnel --port 8080 &
+        echo "Allure Report is now available at: http://localhost:8080"
+        echo "You can access it in your browser."
+
+    - name: Wait for 1 minute
+      run: sleep 60  # Adjust the duration as needed.
+
+    - name: Stop Allure Report
+      run: |
+        pkill -f "allure serve"
+        echo "Allure Report server stopped."
+
+    # End of the workflow
