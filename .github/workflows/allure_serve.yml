@@ -16,18 +16,12 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Install Allure
+    - name: Install Allure Commandline
       run: |
-        wget https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-commandline-2.14.0.zip
-        unzip allure-commandline-2.14.0.zip
-        sudo mv allure-2.14.0 /usr/bin/allure
-        sudo chmod +x /usr/bin/allure
-        allure --version
-
-    - name: Generate Allure Report
-      run: |
-        # Replace 'your/allure/results/folder' with the path to your Allure results folder.
-        allure generate your/allure/results/folder -o allure-report
+        npm install -g allure-commandline
+      # Verify Allure installation
+    - name: Verify Allure version
+      run: allure --version
 
     - name: Serve Allure Report
       run: |
