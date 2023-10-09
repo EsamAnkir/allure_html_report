@@ -20,7 +20,7 @@ jobs:
 
       - name: Build and start Allure Docker Service
         run: |
-          docker-compose -f ../docker-compose.yml up -d
+          docker-compose -f docker-compose.yml up -d
 
       - name: Wait for Allure Docker Service to start
         run: sleep 10  # Adjust the wait time as needed
