@@ -1,47 +1,33 @@
-name: Allure Report
+name: Serve Allure Report
 
-on: [push]  # Trigger the workflow on a push to the repository
+on:
+  push:
+    branches:
+      - main  # You can change this to your desired branch
 
 jobs:
-  allure:
+  serve-allure-report:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        distribution: 'adopt'
-        java-version: '11'
+        node-version: '14'  # Or the Node.js version required for Allure
 
-    - name: Install Allure Commandline
-      run: |
-        npm install -g allure-commandline
-      # Verify Allure installation
-    - name: Verify Allure version
-      run: allure --version
+    - name: Install Allure Command-line Tool
+      run: npm install -g allure-commandline
 
     - name: Serve Allure Report
       run: |
-        # Serve the Allure report on a specified port.
-        allure serve allure_reports --port 8080 &
+        # Serve the report locally using Allure
+        allure serve allure-report
 
-    - name: Wait for Report to Start
-      run: sleep 10  # Adjust the duration as needed to ensure the report starts serving.
-
-    - name: Echo Report URL
-      run: |
-        echo "Allure Report is now available at: http://localhost:8080"
-        echo "You can access it in your browser."
-
-    - name: Wait for 1 minute
-      run: sleep 60  # Adjust the duration as needed.
-
-    - name: Stop Allure Report
-      run: |
-        pkill -f "allure serve"
-        echo "Allure Report server stopped."
-
-    # End of the workflow
+    - name: Upload Allure Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: allure-report
+        path: allure-report
