@@ -1,7 +1,7 @@
 version: '3'
 services:
   allure-docker-service:
-    image: daxspb/allure-docker-service
+    image: allureframework/allure-docker-service
     ports:
       - "5050:5050"
     volumes:
