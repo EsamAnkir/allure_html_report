@@ -1,1 +1,0 @@
-{"uuid": "2c343f5d-2eb7-4338-b993-248f74cced94", "children": ["fb9ea8bc-e1de-45f2-bea9-e07d323f5642"], "befores": [{"name": "pytestbdd_when_The user clicks the product \"{locator_name}\" and check the \"{page_title}\" or \"{no_items_message}\"", "status": "passed", "start": 1696510001295, "stop": 1696510001295}], "start": 1696510001295, "stop": 1696510034752}

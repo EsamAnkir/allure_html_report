@@ -1,1 +1,0 @@
-{"uuid": "3c2697dc-468b-4987-bc16-8314bd8762b4", "children": ["7ad9e9b2-376b-4f9d-afd9-a85f893a56b6"], "befores": [{"name": "pytestbdd_when_The user types \"{text}\" then press enter key in the \"{locator_name}\"", "status": "passed", "start": 1696510344161, "stop": 1696510344161}], "start": 1696510344161, "stop": 1696510350990}

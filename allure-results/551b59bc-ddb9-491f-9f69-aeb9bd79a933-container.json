@@ -1,1 +1,0 @@
-{"uuid": "004ac61b-1c7e-427d-b302-b132189482ab", "children": ["75d2052c-c339-42b2-a368-5e1111100a8a"], "befores": [{"name": "pytestbdd_given_The user is on the login page", "status": "passed", "start": 1696510719386, "stop": 1696510719386}], "start": 1696510719386, "stop": 1696510751676}

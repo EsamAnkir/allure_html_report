@@ -1,1 +1,0 @@
-{"uuid": "ae29bc90-79d3-4097-81cd-db92e99ca699", "children": ["746d7ed7-d07c-4a2e-8853-f0beb0f2763d"], "befores": [{"name": "pytestbdd_then_The current url is \"{url}\"", "status": "passed", "start": 1696509923887, "stop": 1696509923887}], "start": 1696509923887, "stop": 1696509924046}

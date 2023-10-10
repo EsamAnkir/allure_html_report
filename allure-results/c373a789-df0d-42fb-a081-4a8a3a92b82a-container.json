@@ -1,1 +1,0 @@
-{"uuid": "1c961630-ec93-4a01-a038-12ff5f1e35cd", "children": ["7ad9e9b2-376b-4f9d-afd9-a85f893a56b6"], "befores": [{"name": "pytestbdd_when_The user clicks the add product button \"{add_buttons}\"", "status": "passed", "start": 1696510345503, "stop": 1696510345503}], "start": 1696510345503, "stop": 1696510350988}

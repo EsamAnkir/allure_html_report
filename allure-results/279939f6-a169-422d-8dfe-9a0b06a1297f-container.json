@@ -1,1 +1,0 @@
-{"uuid": "ea95c8c2-2f72-4ea6-99bd-10a570e1a4fe", "children": ["88a362df-6b91-4de0-aac7-5e3d8794f8ed"], "befores": [{"name": "pytestbdd_then_The \"{locator_name}\" is displayed with the correct value", "status": "passed", "start": 1696511010603, "stop": 1696511010603}], "start": 1696511010603, "stop": 1696511012435}
